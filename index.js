@@ -41,7 +41,6 @@ function fetchTitleWithCallbacks(address, callback) {
     // Handle redirects
     if ([301, 302, 307, 308].includes(res.statusCode) && res.headers.location) {
       try {
-        //  Follow only one redirect
         return fetchTitleWithCallbacks(res.headers.location, callback);
       } catch (error) {
         return callback(null, "NO RESPONSE");
